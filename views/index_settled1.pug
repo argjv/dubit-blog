@@ -1,0 +1,54 @@
+extends layout
+
+block content
+
+  .article
+    .p1
+    h1 #{title}
+    h2 Overview
+    p.
+      Lendingblock is a London-based company that is seeking to deploy an exchange solution for participants that want the ability to borrow or lend against their existing portfolio.
+      Lendingblock seeks to replicate and ‘improve upon’ the traditional methods of securities lending and apply it to cryptocurrency markets.
+
+      Create a medium of exchange for secure lending and borrowing between market participants
+      Be the first to decentralize the process so that borrowed assets can be used for any means as the participants see fit
+      Allow lenders to receive interest payments for the pledging of assets on loan
+      The company has produced several alpha-stage versions of the product and are seeking to release a functional MVP in the near-term.
+
+    h2 Commercial & Technical Strategy
+    p.
+      The technical implementation of Lendingblock appears to be a combination of off-chain and on-chain processes. Initial user signup and screening is required followed by a 4-phase approach to borrowing and lending.
+
+      Specification: completing profiles and details regarding anticipated lending/borrowing amounts, collateral requirements etc
+      Initiation: implementation of the smart contract between matched parties
+      Servicing/operation: payment and receipt of interest payments
+      Finalisation: Repayment of initial capital and transfer of collateral back to borrowing party
+      Lendingblock have devised several formulas to determine collateralization methods which appear to be sound from a theoretical point of view. These can be viewed at 3.3 of the whitepaper.
+
+      From a commercial point of view, the platform appears to heavily target institutional participants as its main clientele.
+
+      API access will be made available to institutions allowing them to integrate borrowing and lending services into their own operations.
+
+      Lendingblock has also expressed a desire to integrate with several wallet providers, however, no information regarding specific wallets has been provided.
+
+    h2 Roadmap
+    p.
+      A detailed roadmap has not been provided. The website and company material suggest that platform development will occur in Q2 2018 while commercial launch will be in Q3 2018.
+
+    .lnd_invoice2
+      h1 Invoice
+      h2 Settled: #{invoice2.settled}
+      p Payment request: #{invoice2.payment_request}
+      p Amount: 1 satoshis
+
+    .lnd_invoice3
+      h1 Invoice
+      h2 Settled: #{invoice3.settled}
+      p Payment request: #{invoice3.payment_request}
+      p Amount: 1 satoshis
+
+    .lnd_invoice4
+      h1 Invoice
+      h2 Settled: #{invoice4.settled}
+      p Payment request: #{invoice4.payment_request}
+      p Amount: 1 satoshis

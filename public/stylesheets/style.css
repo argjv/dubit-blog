@@ -7,14 +7,18 @@ a {
   color: #00B7FF;
 }
 
-.lnd_info{
-    visibility: visible
+.p1 {
+    background: #fff
 }
 
-.lnd_invoice{
-    visibility: visible
+.p2 {
+    background: #000
 }
 
-.article_content {
-    visibility: visible
+.p3 {
+    background: #000
+}
+
+.p4 {
+    background: #000
 }

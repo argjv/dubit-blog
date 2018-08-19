@@ -1,18 +1,9 @@
 extends layout
 
 block content
-  script.
-    var showContent = function() {
-        if (invoice.settled) {
-            article_content.style.visiblity = "visible";
-            lnd_info.sytle.visibility = "hidden";
-            lnd_invoice.style.visiblity = "hidden";
-        }
-    }
 
-    showContent()
-
-  .p1
+  .article
+    .p1
     h1 #{title}
     h2 Overview
     p.
@@ -107,31 +98,8 @@ block content
 
       Want to download the full report? Click here to view
 
-    .p4
-    h2 Opportunities
-    p.
-      Providing API access for the platform may prove to be a large drawcard for institutions and innovate applications that are seeking to add a lending component to their product/service. While Lendingblock has not yet indicated any partnerships with wallet providers, we do see this as a large opportunity for integration in the future.
-
-      It is likely that asset management firms that are holding significant amounts of cash/cryptocurrency may seek to lend or borrow to rebalance or restructure their portfolio. In essence, the Lendingblock platform could pave the way to more efficient margin trading, shorting of instruments and interest-based structured products.
-
-    h2 Threats
-    p.
-      Lendingblock faces competition from Ethlend and Celsius Network. While this competition does exist, we believe that institutional targeting will likely allow LND to catch up quickly.
-      Delay in the launch of the platform is a significant threat. With a lack of technical personnel, the team is targeting an ambitious Q2 development and Q3 launch. Our expectation is that this may be delayed if they are seeking to deploy a finished and polished product.
-      Lack of marketing funds may lead to a lack of adoption. While Lendingblock is targeting a higher-grade of user, market awareness is a must.
-      Marketing and awareness efforts for the presale and public sale have been quite low. Lack of community support may slow the token sale process, however, it is likely that an influx of participants will appear once the sale becomes active.
-
-    h2 Conclusion
-    p.
-      Astronaut is attracted to the Lendingblock venture and believes that it if properly executed, the platform has the ability to be a substantial player in the institutional marketplace.
-
-      For the reasons listed below, Astronaut is taking exposure to Lendingblock:
-
-      The deal-structure is compelling with a small hard-cap and a limit on private sale dominance
-      The institutional focus is a significant differentiator in the marketplace and will likely achieve much higher transactional volume than any competitors much faster
-      While we do not agree with the current market valuation of ETHLend, it provides a very promising outlook for Lendingblock. With only 4000ETH put through the ETHLend as of February 2018, the market is placing a ~30x valuation on it based on a transactional multiple. If there is a strict focus on institutional users, Lendingblock should achieve far greater volumes much faster, leading to significant appreciation in market capitalization using the same metrics.
-      While Astronaut is is very attracted to Lendingblock and its potential, we do acknowledge the need for more technical personnel in the team and further promotion/awareness for the purpose of public sale and ongoing market engagement.
-
-      In light of the preceding, the Astronaut Investment Committee (IC) have agreed to take conservative exposure for the medium-term with the possibility of further investment during the presale and public sale phase of the ICO.
-
-      On the 25th of February, Astronaut Capital (ASTRO) released a report stating that they have become an investor in Lendingblock (LND). You can view the full report here.
+    .lnd_invoice4
+      h1 Invoice
+      h2 Settled: #{invoice4.settled}
+      p Payment request: #{invoice4.payment_request}
+      p Amount: 1 satoshisg

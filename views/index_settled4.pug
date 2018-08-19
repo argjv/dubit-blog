@@ -1,18 +1,9 @@
 extends layout
 
 block content
-  script.
-    var showContent = function() {
-        if (invoice.settled) {
-            article_content.style.visiblity = "visible";
-            lnd_info.sytle.visibility = "hidden";
-            lnd_invoice.style.visiblity = "hidden";
-        }
-    }
 
-    showContent()
-
-  .p1
+  .article
+    .p1
     h1 #{title}
     h2 Overview
     p.
