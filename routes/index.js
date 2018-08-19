@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var bitreader = require('bitreader');
 
+var invoicesRHash;
+var invoiceJson;
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var ip = '34.208.184.134';
@@ -15,11 +18,29 @@ router.get('/', function(req, res, next) {
       // Enable scrolling or article visibility
       // Refresh the page
     });
-    bitreader.generateInvoice(ip, port, amount, 'Paying for ' + articleTitle, function (invoice) {
-      invoice.value = amount;
-      invoice.memo = 'Paying for ' + articleTitle;
-      res.render('index', { title: articleTitle,  getInfo: response, invoice: invoice});
-    });
+    if (invoicesRHash) {
+      bitreader.lookupInvoice(ip, port, invoicesRHash, function (invoice) {
+        console.log('Found an existing invoice: ' + invoicesRHash);
+        console.log('Settled: ' + invoice.settled);
+        if (invoice.settled) {
+          console.log('Invoices is settled, enjoy the article!');
+        } else {
+          console.log('Waiting for invoice payment');
+        }
+        // Show the current invoice info
+        res.render('index', {title: articleTitle, getInfo: response, invoice: invoice});
+      });
+    } else {
+      // Create a new invoice
+      bitreader.generateInvoice(ip, port, amount, 'Paying for ' + articleTitle, function (invoice) {
+        invoiceJson = invoice;
+        invoicesRHash = invoice.r_hash;
+        invoice.value = amount;
+        invoice.memo = 'Paying for ' + articleTitle;
+        invoice.settled = false;
+        res.render('index', {title: articleTitle, getInfo: response, invoice: invoice });
+      });
+    }
   });
 });
 
