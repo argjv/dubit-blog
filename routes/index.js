@@ -9,7 +9,7 @@ var invoiceJson;
 router.get('/', function(req, res, next) {
   var ip = '34.208.184.134';
   var port = 10009;
-  var amount = 100400;  // satoshies
+  var amount = 10;  // satoshies
   var articleTitle = 'Astronaut Capital invests in Lendingblock (LND) Private Sale';
   bitreader.getInfo(ip, port, function (response) {
     bitreader.subscribeToInvoices(ip, port, function (invoice) {
@@ -24,11 +24,12 @@ router.get('/', function(req, res, next) {
         console.log('Settled: ' + invoice.settled);
         if (invoice.settled) {
           console.log('Invoices is settled, enjoy the article!');
+          res.render('index_settled', {title: articleTitle, getInfo: response, invoice: invoice});
         } else {
+          res.render('index', {title: articleTitle, getInfo: response, invoice: invoice});
           console.log('Waiting for invoice payment');
         }
         // Show the current invoice info
-        res.render('index', {title: articleTitle, getInfo: response, invoice: invoice});
       });
     } else {
       // Create a new invoice
