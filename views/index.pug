@@ -2,13 +2,6 @@ extends layout
 
 block content
 
-  .lnd_info
-    h1 LND Information
-    p Identity pubkey: #{getInfo.identity_pubkey}
-    p Alias: #{getInfo.alias}
-    p Pending channels: #{getInfo.num_pending_channels}
-    p Active channels: #{getInfo.num_active_channels}
-
   .lnd_invoice1
     h1 Invoice
     h2 Settled: #{invoice1.settled}
@@ -19,16 +12,4 @@ block content
     h1 Invoice
     h2 Settled: #{invoice2.settled}
     p Payment request: #{invoice2.payment_request}
-    p Amount: 1 satoshis
-
-  .lnd_invoice3
-    h1 Invoice
-    h2 Settled: #{invoice3.settled}
-    p Payment request: #{invoice3.payment_request}
-    p Amount: 1 satoshis
-
-  .lnd_invoice4
-    h1 Invoice
-    h2 Settled: #{invoice4.settled}
-    p Payment request: #{invoice4.payment_request}
     p Amount: 1 satoshis
